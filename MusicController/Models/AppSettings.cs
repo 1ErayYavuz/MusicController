@@ -15,5 +15,5 @@ public record AppSettings
     public bool StartMinimized { get; init; } = false;
     public int ToastDurationMs { get; init; } = 2000;
     public ToastPosition ToastPosition { get; init; } = ToastPosition.BottomRight;
-    public string Language { get; init; } = "tr";
+    public string Language { get; init; } = "en";
 }

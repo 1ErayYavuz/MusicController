@@ -2,7 +2,7 @@ namespace MusicController.Services;
 
 public static class LocalizationManager
 {
-    private static string _currentLanguage = "tr";
+    private static string _currentLanguage = "en";
     
     private static readonly Dictionary<string, Dictionary<string, string>> Translations = new()
     {
