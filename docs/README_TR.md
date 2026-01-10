@@ -14,7 +14,9 @@ Windows'ta global kısayol tuşlarıyla müziğinizi kontrol edin. Spotify, YouT
 ## ✨ Özellikler
 
 - 🎹 **Global Kısayollar** - Uygulama arka planda bile olsa müziği kontrol edin
+- 🔊 **Ses Kontrolü** - Kısayollarla ses aç, kıs ve sessiz
 - 🔔 **Toast Bildirimleri** - Şık karanlık temalı popup'larla şarkı bilgisini görün
+- 🎵 **Platform Algılama** - Hangi uygulamadan çaldığını gösterir (Spotify, Chrome, YouTube, vs.)
 - 🌍 **Çoklu Dil** - Türkçe, İngilizce, Rusça, Almanca
 - ⚙️ **Özelleştirilebilir** - Kendi kısayol kombinasyonlarınızı ayarlayın
 - 📌 **Sistem Tepsisi** - Arka planda sessizce çalışır
@@ -31,6 +33,9 @@ Windows'ta global kısayol tuşlarıyla müziğinizi kontrol edin. Spotify, YouT
 | Oynat/Duraklat | `Ctrl + Alt + Space` |
 | Sonraki Şarkı | `Ctrl + Alt + →` |
 | Önceki Şarkı | `Ctrl + Alt + ←` |
+| Ses Aç | `Ctrl + Alt + ↑` |
+| Ses Kıs | `Ctrl + Alt + ↓` |
+| Sessiz | `Ctrl + M` |
 
 > Bunları Ayarlar'dan (⚙️ butonu) özelleştirebilirsiniz
 
@@ -38,8 +43,9 @@ Windows'ta global kısayol tuşlarıyla müziğinizi kontrol edin. Spotify, YouT
 
 1. [Releases](https://github.com/1ErayYavuz/MusicController/releases) sayfasından `MusicController.exe` indirin
 2. Çalıştırın
-3. Kısayol tuşlarıyla müziğinizi kontrol edin
-4. Ayarları açmak için tepsi simgesine tıklayın
+3. **Uygulama sistem tepsisinde başlar** - görev çubuğunda müzik simgesini arayın
+4. Kısayol tuşlarıyla müziğinizi kontrol edin
+5. Ayarları açmak için tepsi simgesine tıklayın
 
 ## 🔧 Kaynak Koddan Derleme
 

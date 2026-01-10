@@ -14,7 +14,9 @@ Control your music with global hotkeys on Windows. Works with Spotify, YouTube, 
 ## ✨ Features
 
 - 🎹 **Global Hotkeys** - Control music from anywhere, even when app is in background
+- 🔊 **Volume Control** - Volume up, down, and mute with hotkeys
 - 🔔 **Toast Notifications** - See current song info with beautiful dark-themed popups
+- 🎵 **Platform Detection** - Shows which app is playing (Spotify, Chrome, YouTube, etc.)
 - 🌍 **Multi-language** - Turkish, English, Russian, German
 - ⚙️ **Customizable** - Set your own hotkey combinations
 - 📌 **System Tray** - Runs quietly in the background
@@ -31,6 +33,9 @@ Control your music with global hotkeys on Windows. Works with Spotify, YouTube, 
 | Play/Pause | `Ctrl + Alt + Space` |
 | Next Track | `Ctrl + Alt + →` |
 | Previous Track | `Ctrl + Alt + ←` |
+| Volume Up | `Ctrl + Alt + ↑` |
+| Volume Down | `Ctrl + Alt + ↓` |
+| Mute | `Ctrl + M` |
 
 > You can customize these in Settings (⚙️ button)
 
@@ -42,8 +47,9 @@ Control your music with global hotkeys on Windows. Works with Spotify, YouTube, 
 
 1. Download `MusicController.exe` from [Releases](https://github.com/1ErayYavuz/MusicController/releases)
 2. Run the executable
-3. Use hotkeys to control your music
-4. Click the tray icon to open settings
+3. **The app starts minimized in the system tray** - look for the music icon in your taskbar
+4. Use hotkeys to control your music
+5. Click the tray icon to open settings
 
 ## 🔧 Building from Source
 

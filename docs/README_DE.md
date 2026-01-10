@@ -14,7 +14,9 @@ Steuern Sie Ihre Musik mit globalen Tastenkombinationen unter Windows. Funktioni
 ## ✨ Funktionen
 
 - 🎹 **Globale Tastenkürzel** - Musik von überall steuern, auch im Hintergrund
+- 🔊 **Lautstärkeregelung** - Lauter, leiser und stumm mit Tastenkürzel
 - 🔔 **Toast-Benachrichtigungen** - Aktuelle Songinfos in schönen dunklen Popups
+- 🎵 **Plattformerkennung** - Zeigt welche App abspielt (Spotify, Chrome, YouTube, etc.)
 - 🌍 **Mehrsprachig** - Türkisch, Englisch, Russisch, Deutsch
 - ⚙️ **Anpassbar** - Eigene Tastenkombinationen festlegen
 - 📌 **Systemtray** - Läuft leise im Hintergrund
@@ -31,6 +33,9 @@ Steuern Sie Ihre Musik mit globalen Tastenkombinationen unter Windows. Funktioni
 | Abspielen/Pause | `Ctrl + Alt + Space` |
 | Nächster Titel | `Ctrl + Alt + →` |
 | Vorheriger Titel | `Ctrl + Alt + ←` |
+| Lauter | `Ctrl + Alt + ↑` |
+| Leiser | `Ctrl + Alt + ↓` |
+| Stumm | `Ctrl + M` |
 
 > Sie können diese in den Einstellungen (⚙️ Button) anpassen
 
@@ -38,8 +43,9 @@ Steuern Sie Ihre Musik mit globalen Tastenkombinationen unter Windows. Funktioni
 
 1. Laden Sie `MusicController.exe` von [Releases](https://github.com/1ErayYavuz/MusicController/releases) herunter
 2. Führen Sie die Datei aus
-3. Verwenden Sie Tastenkürzel zur Musiksteuerung
-4. Klicken Sie auf das Tray-Symbol für Einstellungen
+3. **Die App startet im Systemtray** - suchen Sie das Musiksymbol in der Taskleiste
+4. Verwenden Sie Tastenkürzel zur Musiksteuerung
+5. Klicken Sie auf das Tray-Symbol für Einstellungen
 
 ## 🔧 Aus Quellcode erstellen
 
