@@ -56,6 +56,15 @@ public partial class SettingsWindow : Window
         
         if (_hotkeys.TryGetValue(HotkeyAction.PreviousTrack, out var pt))
             PrevTrackBox.Text = pt.ToDisplayString();
+        
+        if (_hotkeys.TryGetValue(HotkeyAction.VolumeUp, out var vu))
+            VolumeUpBox.Text = vu.ToDisplayString();
+        
+        if (_hotkeys.TryGetValue(HotkeyAction.VolumeDown, out var vd))
+            VolumeDownBox.Text = vd.ToDisplayString();
+        
+        if (_hotkeys.TryGetValue(HotkeyAction.Mute, out var m))
+            MuteBox.Text = m.ToDisplayString();
     }
 
     private void UpdateUILanguage()
@@ -65,6 +74,9 @@ public partial class SettingsWindow : Window
         PlayPauseLabel.Text = LocalizationManager.Get("PlayPause");
         NextTrackLabel.Text = LocalizationManager.Get("NextTrack");
         PrevTrackLabel.Text = LocalizationManager.Get("PreviousTrack");
+        VolumeUpLabel.Text = LocalizationManager.Get("VolumeUp");
+        VolumeDownLabel.Text = LocalizationManager.Get("VolumeDown");
+        MuteLabel.Text = LocalizationManager.Get("Mute");
         HotkeyTipText.Text = LocalizationManager.Get("HotkeyTip");
         LanguageLabel.Text = LocalizationManager.Get("Language");
         SaveButton.Content = LocalizationManager.Get("Save");
@@ -117,6 +129,9 @@ public partial class SettingsWindow : Window
             "PlayPause" => HotkeyAction.PlayPause,
             "NextTrack" => HotkeyAction.NextTrack,
             "PreviousTrack" => HotkeyAction.PreviousTrack,
+            "VolumeUp" => HotkeyAction.VolumeUp,
+            "VolumeDown" => HotkeyAction.VolumeDown,
+            "Mute" => HotkeyAction.Mute,
             _ => (HotkeyAction?)null
         };
 

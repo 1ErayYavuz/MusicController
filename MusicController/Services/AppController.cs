@@ -8,18 +8,21 @@ public class AppController
     private readonly MediaController _mediaController;
     private readonly ToastNotificationService _toastService;
     private readonly ISettingsManager _settingsManager;
+    private readonly AudioManager _audioManager;
     private AppSettings _settings;
 
     public AppController(
         HotkeyManager hotkeyManager,
         MediaController mediaController,
         ToastNotificationService toastService,
-        ISettingsManager settingsManager)
+        ISettingsManager settingsManager,
+        AudioManager audioManager)
     {
         _hotkeyManager = hotkeyManager;
         _mediaController = mediaController;
         _toastService = toastService;
         _settingsManager = settingsManager;
+        _audioManager = audioManager;
         _settings = settingsManager.LoadSettings();
     }
 
@@ -30,6 +33,11 @@ public class AppController
         await _mediaController.InitializeAsync();
         _toastService.Configure(_settings.ToastPosition, _settings.ToastDurationMs);
         _hotkeyManager.HotkeyPressed += OnHotkeyPressed;
+    }
+
+    public void InitializeAudio(IntPtr windowHandle)
+    {
+        _audioManager.Initialize(windowHandle);
     }
 
     public void RegisterHotkeys()
@@ -78,6 +86,18 @@ public class AppController
                 success = await _mediaController.PreviousTrackAsync();
                 toastType = ToastType.PreviousTrack;
                 break;
+            case HotkeyAction.VolumeUp:
+                _audioManager.VolumeUp();
+                _toastService.ShowToast(ToastType.VolumeUp, await _mediaController.GetCurrentMediaInfoAsync());
+                return;
+            case HotkeyAction.VolumeDown:
+                _audioManager.VolumeDown();
+                _toastService.ShowToast(ToastType.VolumeDown, await _mediaController.GetCurrentMediaInfoAsync());
+                return;
+            case HotkeyAction.Mute:
+                _audioManager.ToggleMute();
+                _toastService.ShowToast(ToastType.Mute, await _mediaController.GetCurrentMediaInfoAsync());
+                return;
             default:
                 return;
         }
@@ -95,14 +115,12 @@ public class AppController
 
     private async Task<MediaInfo?> GetMediaInfoWithRetryAsync(HotkeyAction action)
     {
-        // Play/Pause için kısa bekleme
         if (action == HotkeyAction.PlayPause)
         {
             await Task.Delay(150);
             return await _mediaController.GetCurrentMediaInfoAsync();
         }
 
-        // Next/Previous için birkaç deneme yap
         for (int i = 0; i < 6; i++)
         {
             await Task.Delay(400);

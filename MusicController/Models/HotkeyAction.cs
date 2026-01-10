@@ -4,5 +4,8 @@ public enum HotkeyAction
 {
     PlayPause,
     NextTrack,
-    PreviousTrack
+    PreviousTrack,
+    VolumeUp,
+    VolumeDown,
+    Mute
 }

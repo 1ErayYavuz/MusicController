@@ -27,7 +27,7 @@ public class ToastNotificationService : IToastNotificationService
         }
 
         var actionText = GetActionText(type);
-        _toastWindow.ShowMessage(actionText, mediaInfo?.Title, mediaInfo?.Artist, _position);
+        _toastWindow.ShowMessage(actionText, mediaInfo?.Title, mediaInfo?.Artist, mediaInfo?.AppName, _position);
 
         _hideTimer = new DispatcherTimer
         {
@@ -53,6 +53,9 @@ public class ToastNotificationService : IToastNotificationService
             ToastType.PlayPause => LocalizationManager.Get("ToastPlayPause"),
             ToastType.NextTrack => LocalizationManager.Get("ToastNextTrack"),
             ToastType.PreviousTrack => LocalizationManager.Get("ToastPrevTrack"),
+            ToastType.VolumeUp => LocalizationManager.Get("ToastVolumeUp"),
+            ToastType.VolumeDown => LocalizationManager.Get("ToastVolumeDown"),
+            ToastType.Mute => LocalizationManager.Get("ToastMute"),
             ToastType.NoMedia => LocalizationManager.Get("ToastNoMedia"),
             _ => LocalizationManager.Get("ToastDefault")
         };

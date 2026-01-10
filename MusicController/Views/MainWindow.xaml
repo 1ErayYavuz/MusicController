@@ -1,7 +1,7 @@
 <Window x:Class="MusicController.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Music Controller" Height="320" Width="350"
+        Title="Music Controller" Height="420" Width="350"
         WindowStartupLocation="CenterScreen"
         Background="#1E1E1E"
         ResizeMode="NoResize">
@@ -41,50 +41,81 @@
                 Background="#2D2D2D" 
                 CornerRadius="8"
                 Padding="15">
-            <StackPanel>
-                <TextBlock x:Name="HotkeysLabel" Text="Kısayol Tuşları" 
-                           Foreground="#888888"
-                           FontSize="12"
-                           Margin="0,0,0,10"/>
-                
-                <Grid Margin="0,5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock x:Name="PlayPauseLabel" Text="Oynat/Duraklat" Foreground="White"/>
-                    <TextBlock x:Name="PlayPauseHotkey" Grid.Column="1" Foreground="#4CAF50" FontWeight="SemiBold"/>
-                </Grid>
-                
-                <Grid Margin="0,5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock x:Name="NextTrackLabel" Text="Sonraki Şarkı" Foreground="White"/>
-                    <TextBlock x:Name="NextTrackHotkey" Grid.Column="1" Foreground="#4CAF50" FontWeight="SemiBold"/>
-                </Grid>
-                
-                <Grid Margin="0,5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock x:Name="PrevTrackLabel" Text="Önceki Şarkı" Foreground="White"/>
-                    <TextBlock x:Name="PrevTrackHotkey" Grid.Column="1" Foreground="#4CAF50" FontWeight="SemiBold"/>
-                </Grid>
-            </StackPanel>
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel>
+                    <TextBlock x:Name="HotkeysLabel" Text="Current Hotkeys" 
+                               Foreground="#888888"
+                               FontSize="12"
+                               Margin="0,0,0,10"/>
+                    
+                    <Grid Margin="0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="PlayPauseLabel" Text="Play/Pause" Foreground="White"/>
+                        <TextBlock x:Name="PlayPauseHotkey" Grid.Column="1" Foreground="#4CAF50" FontWeight="SemiBold"/>
+                    </Grid>
+                    
+                    <Grid Margin="0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="NextTrackLabel" Text="Next Track" Foreground="White"/>
+                        <TextBlock x:Name="NextTrackHotkey" Grid.Column="1" Foreground="#4CAF50" FontWeight="SemiBold"/>
+                    </Grid>
+                    
+                    <Grid Margin="0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="PrevTrackLabel" Text="Previous Track" Foreground="White"/>
+                        <TextBlock x:Name="PrevTrackHotkey" Grid.Column="1" Foreground="#4CAF50" FontWeight="SemiBold"/>
+                    </Grid>
+                    
+                    <Rectangle Height="1" Fill="#444" Margin="0,10"/>
+                    
+                    <Grid Margin="0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="VolumeUpLabel" Text="Volume Up" Foreground="White"/>
+                        <TextBlock x:Name="VolumeUpHotkey" Grid.Column="1" Foreground="#4CAF50" FontWeight="SemiBold"/>
+                    </Grid>
+                    
+                    <Grid Margin="0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="VolumeDownLabel" Text="Volume Down" Foreground="White"/>
+                        <TextBlock x:Name="VolumeDownHotkey" Grid.Column="1" Foreground="#4CAF50" FontWeight="SemiBold"/>
+                    </Grid>
+                    
+                    <Grid Margin="0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="MuteLabel" Text="Mute" Foreground="White"/>
+                        <TextBlock x:Name="MuteHotkey" Grid.Column="1" Foreground="#4CAF50" FontWeight="SemiBold"/>
+                    </Grid>
+                </StackPanel>
+            </ScrollViewer>
         </Border>
 
         <!-- Footer -->
         <StackPanel Grid.Row="2" Margin="0,15,0,0">
             <CheckBox x:Name="StartupCheckbox" 
-                      Content="Windows ile başlat"
+                      Content="Start with Windows"
                       Foreground="White"
                       HorizontalAlignment="Center"
                       Checked="StartupCheckbox_Changed"
                       Unchecked="StartupCheckbox_Changed"/>
-            <TextBlock x:Name="MinimizeInfoText" Text="Pencereyi kapatınca sistem tepsisine küçülür"
+            <TextBlock x:Name="MinimizeInfoText" Text="Minimizes to system tray when closed"
                        Foreground="#666666"
                        FontSize="11"
                        HorizontalAlignment="Center"

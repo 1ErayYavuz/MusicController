@@ -14,6 +14,7 @@ public partial class MainWindow : Window
     private readonly HotkeyManager _hotkeyManager;
     private readonly ISettingsManager _settingsManager;
     private bool _isExiting;
+    private bool _startMinimized;
 
     public MainWindow()
     {
@@ -23,11 +24,13 @@ public partial class MainWindow : Window
         _hotkeyManager = new HotkeyManager();
         var mediaController = new MediaController();
         var toastService = new ToastNotificationService();
+        var audioManager = new AudioManager();
         
-        _appController = new AppController(_hotkeyManager, mediaController, toastService, _settingsManager);
+        _appController = new AppController(_hotkeyManager, mediaController, toastService, _settingsManager, audioManager);
         _trayIconManager = new TrayIconManager();
         
-        // Set initial language
+        _startMinimized = _appController.Settings.StartMinimized;
+        
         LocalizationManager.SetLanguage(_appController.Settings.Language);
         LocalizationManager.LanguageChanged += (s, e) => UpdateUILanguage();
         
@@ -50,6 +53,9 @@ public partial class MainWindow : Window
         PlayPauseLabel.Text = LocalizationManager.Get("PlayPause");
         NextTrackLabel.Text = LocalizationManager.Get("NextTrack");
         PrevTrackLabel.Text = LocalizationManager.Get("PreviousTrack");
+        VolumeUpLabel.Text = LocalizationManager.Get("VolumeUp");
+        VolumeDownLabel.Text = LocalizationManager.Get("VolumeDown");
+        MuteLabel.Text = LocalizationManager.Get("Mute");
         StartupCheckbox.Content = LocalizationManager.Get("StartWithWindows");
         MinimizeInfoText.Text = LocalizationManager.Get("MinimizeInfo");
     }
@@ -79,11 +85,17 @@ public partial class MainWindow : Window
         var helper = new WindowInteropHelper(this);
         helper.EnsureHandle();
         _hotkeyManager.Initialize(this);
+        _appController.InitializeAudio(helper.Handle);
         
         await _appController.InitializeAsync();
         _appController.RegisterHotkeys();
         
         _trayIconManager.Initialize();
+        
+        if (_startMinimized)
+        {
+            Hide();
+        }
     }
 
     private void UpdateHotkeyDisplay()
@@ -98,6 +110,15 @@ public partial class MainWindow : Window
         
         if (settings.Hotkeys.TryGetValue(HotkeyAction.PreviousTrack, out var prev))
             PrevTrackHotkey.Text = prev.ToDisplayString();
+        
+        if (settings.Hotkeys.TryGetValue(HotkeyAction.VolumeUp, out var volUp))
+            VolumeUpHotkey.Text = volUp.ToDisplayString();
+        
+        if (settings.Hotkeys.TryGetValue(HotkeyAction.VolumeDown, out var volDown))
+            VolumeDownHotkey.Text = volDown.ToDisplayString();
+        
+        if (settings.Hotkeys.TryGetValue(HotkeyAction.Mute, out var mute))
+            MuteHotkey.Text = mute.ToDisplayString();
     }
 
     protected override void OnClosing(CancelEventArgs e)
